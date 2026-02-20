@@ -34,7 +34,7 @@ def update_item(item_id: int, item: schemas.ItemUpdate, db: Session = Depends(ge
         raise HTTPException(status_code=404, detail="Item not found")
     return updated
 
-@router.delete("/{item_id}", status_code=200)
+@router.delete("/{item_id}", status_code=204)
 def delete_item(item_id: int, db: Session = Depends(get_db)):
     deleted = crud.delete_item(db, item_id)
     if not deleted:
