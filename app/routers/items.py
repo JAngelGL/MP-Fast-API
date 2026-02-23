@@ -36,7 +36,6 @@ def get_db():
     finally:
         db.close()
 
-
 @router.get("/", response_model=list[schemas.ItemResponse])
 def read_items(db: Session = Depends(get_db)):
     """
